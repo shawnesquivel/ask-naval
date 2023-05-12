@@ -1,34 +1,39 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Ask-Naval
 
-## Getting Started
+Ask-Naval is a web application built with Next.js, LangChain, and Pinecone. It makes use of Natural Language Processing (NLP) to enable users to ask questions and receive answers based on the contents of a book. In our case, we've used the book by Naval Ravikant. 
 
-First, run the development server:
+## Using the app
 
-```bash
+Remember to create a .env file in the root directory and fill it with necessary environment variables such as PINECONE_API_KEY, PINECONE_ENVIRONMENT, PINECONE_INDEX, and OPENAI_API_KEY.
+
+Enjoy interacting with the wisdom of Naval Ravikant!
+
+## Features
+
+- **Document Loader**: This component of our application reads a PDF file, in this case, a book, and converts each page into a `Document` object. Each `Document` contains the text content and metadata about the page.
+- **LangChain**: This is a library developed by OpenAI that helps us process the unstructured text data from our documents. With LangChain, we can split our documents into smaller chunks, making it easier to process them using OpenAI's language model, GPT-4.
+- **Pinecone**: Pinecone is a vector database that lets us store and search for similar items. In our case, we use it to store document vectors and perform efficient similarity searches to find relevant documents based on user queries.
+- **Next.js**: Our application is built on top of Next.js, a popular React framework that allows for efficient server-side rendering and overall improved performance.
+
+## How it Works
+
+1. **Load and Process Documents**: The application starts by loading the book using a `PDFLoader`. The book is then split into smaller chunks using a `CharacterTextSplitter`. This makes the book easier to process.
+
+2. **Create Vector Store**: Each document chunk is then converted into a vector using OpenAI's embeddings and stored in a Pinecone vector store.
+
+3. **Query Processing**: When a user asks a question, the application searches the vector store for similar document vectors (i.e., documents that might contain the answer). The top documents are then processed using the OpenAI language model to generate the most relevant answer.
+
+## Installation
+
+```sh
+# Clone the repository
+git clone https://github.com/yourusername/ask-naval.git
+
+# Move into the directory
+cd ask-naval
+
+# Install dependencies
+npm install
+
+# Start the server
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-```
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
