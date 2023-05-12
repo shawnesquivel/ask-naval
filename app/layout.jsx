@@ -4,8 +4,8 @@ const inter = Inter({ subsets: ["latin"] });
 import Footer from "./Footer";
 
 export const metadata = {
-  title: "YouTube Agent",
-  description: "Get all the latest research",
+  title: "Ask Naval",
+  description: "Ask questions!",
 };
 
 export default function RootLayout({ children }) {

@@ -2,7 +2,6 @@
 
 import React, { useState } from "react";
 
-// Example: https://js.langchain.com/docs/modules/indexes/document_loaders/examples/file_loaders/pdf
 const PDFLoader = () => {
   const [prompt, setPrompt] = useState("");
   const [data, setData] = useState("");
@@ -14,31 +13,19 @@ const PDFLoader = () => {
   const handleSubmit = async (endpoint) => {
     console.log(`sending ${prompt}`);
     console.log(`using ${endpoint}`);
-    // STEP 1: Modify Endpoint
-
-    /**
-     * /pdfuploadtest
-     * /pdfuploadpdf
-     * /pdfuploaddirectory
-     *
-     */
 
     const response = await fetch(`/api/${endpoint}`, {
-      // STEP 2: Check Method
       method: "GET",
     });
 
     const searchRes = await response.json();
-    // Step 3: Double check the console log and setData accordingly
     console.log(searchRes);
     setData(searchRes.text);
   };
   const handleSubmitQuery = async (endpoint) => {
     console.log(`sending ${prompt}`);
     console.log(`endpoint: ${endpoint}`);
-    // STEP 1: Modify Endpoint
     const response = await fetch(`/api/${endpoint}`, {
-      // STEP 2: Check Method
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -54,7 +41,6 @@ const PDFLoader = () => {
 
   return (
     <div className="bg-gray-100 min-h-screen p-8">
-      {/* Step 4: Change the UI as necessary! */}
       <h1 className="text-4xl font-bold text-gray-900 mb-4">Ask Naval 🤔</h1>
       <p className="text-lg text-gray-700 mb-2">
         From The Almanack of Naval Ravikant
