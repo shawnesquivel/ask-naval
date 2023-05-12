@@ -2,6 +2,14 @@
 
 Ask-Naval is a web application built with Next.js, LangChain, and Pinecone. It makes use of Natural Language Processing (NLP) to enable users to ask questions and receive answers based on the contents of a book. In our case, we've used the book by Naval Ravikant. 
 
+
+
+
+https://github.com/shawnesquivel/ask-naval/assets/94336773/b2db811e-8ca7-4f94-8a5b-a326aaa62752
+
+
+
+
 ## Using the app
 
 Remember to create a .env file in the root directory and fill it with necessary environment variables such as PINECONE_API_KEY, PINECONE_ENVIRONMENT, PINECONE_INDEX, and OPENAI_API_KEY.
